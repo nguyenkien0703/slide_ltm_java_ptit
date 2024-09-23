@@ -1,0 +1,58 @@
+// ghi file
+PrintWriter out = new PrintWrite(new File("kien.txt"));
+
+
+
+out.close();
+
+nếu code như tren thì mặc định ban đầu nó sẽ ghi lại toàn bộ file bằng nọi dung mới, neus muốn nội dung mới 
+ghi tiếp vào sau nội dung cũ thì sử dugnj FileWriter
+FileWriter out = new FileWriter("kien.txt", true);
+:40:45 trong video của anh lộc 
+out.write()// ghi noi dung vao file 
+
+out.close();
+
+
+// doc file 
+Scanner sc = new Scanner(new File("kien.txt"))
+-------file nhị phân ------
+//doc file:
+FileInputStream in = new FileInputStream("output.dat")// doc file 
+// muốn đọc ra thì phải đọc từng byte tuwbngf byte 
+int c ;
+while((c=in.read()) !=-1) sout	(char)c;
+
+in.close();
+
+
+// ghi file 
+FileOutputStream out = new FileOutputStream("output.dat")
+out.write("nguyen van kien".getBytes());
+out.close();
+// ghi cả 1 đối tượng vào 1 file đuôi là .dat
+ FileOutputStream outputStream = new FileOutputStream("sinhvien.dat");
+ObjectOutputStream out = new ObjectOutputStream(outputStream);
+SinhVien s = new SinhVien("nguyen van kien","thanhhoa");
+out.writeObject(s);
+out.close();
+outputStream.close();
+
+//doc object tu 1 file 
+FileInputStream inputStream = new FileInputStream("sinhvien.dat");
+ObjectInputStream in = new ObjectInputStream(inputStream);
+SinhVien s = (SinhVien)in.readObject();
+sout	s;
+in.close();
+inputStream.close();
+//nếu có nghiều sih viên thì dùng hàm available 
+
+FileInputStream inputStream = new FileInputStream("sinhvien.dat");
+ObjectInputStream in = new ObjectInputStream(inputStream);
+while(inputStream.available()> 0){
+	SinhVien s = (SinhVien)in.readObject();
+	sout	s;	
+}
+
+in.close();
+inputStream.close();
